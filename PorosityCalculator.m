@@ -106,8 +106,6 @@ NewMap = [0; 0; 0];
 %Setting up matrices to output to the Excel file
 ExcelMatrixPorosity = zeros(SensitivityTop, ImageCount);
 ExcelMatrixPoreRatio = zeros(SensitivityTop, ImageCount);
-%Setting time left to 0 initially
-TimeLeft = 0;
 %% Running the code
 %Runs the for loop for the number of images to be processed, regardless of
 %the intent of the user
@@ -187,7 +185,7 @@ for A = ImageStart:(ImageCount + ImageStart - 1)
             hold on
             %Displays the images
             imshow(NewMap)
-            figure
+            hold off
         end
         %Calculating the porosity and adding it to its respective array
         Porosity(P, 1) = (counter)/numel(BW);
@@ -214,11 +212,10 @@ for A = ImageStart:(ImageCount + ImageStart - 1)
         end
     end
 end
-if (ImageCheck > 0)
-    hold off
-end
 %% Exporting to Excel
 %Display table of values to Excel
 filename = "PorosityPoreRatioDataTest.xlsx";
 writematrix(ExcelMatrixPorosity, filename, "Sheet", "Porosity");
 writematrix(ExcelMatrixPoreRatio, filename, "Sheet", "PoreRatio");
+writematrix(ExcelMatrixPorosity, filename, "Sheet", "PorosityCropt");
+writematrix(ExcelMatrixPoreRatio, filename, "Sheet", "PoreRatioCropt");
