@@ -12,5 +12,3 @@ Workflow:
    - Check sensitivity values (Runs through numbers from (first user choice) to (second user choice) (min 1, max 255) to be used to process the images.  Information       will then be relayed from each run to an Excel spreadsheet, where it will be highlighted according to acceptable input values.)
    - Generate images (Creates edited images of the original selection to include highlighted pores.  A sensitivity value is required as an input parameter.)
    - Obtain porosity and pore aspect ratio data (Calculates porosity and pore ratio data from the image(s).)
-
-5. Create a three dimensional image of each image, where height is based on darkness of the image (pore vs no pore)
